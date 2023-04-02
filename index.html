@@ -80,13 +80,26 @@
             margin-right: 10px;
         }
     </style>
+
+    <script>
+        $(document).ready(function () {
+            fetch("http://spartacodingclub.shop/sparta_api/weather/seoul").then(res => res.json()).then(data => {
+                let number = data['temp']
+                console.log(number)
+                $('#temp').text(number)
+            })
+        })
+         /* 숫자 카운트는 0부터 시작한다. */
+        /* 숫자는 상관 없지만 텍스트같은 경우는 따움표가 양쪽에 있어야 한다. */
+    </script>
 </head>
 
 
 <body>
     <div class="mytitle">
         <h1>내 생애 최고의 영화들</h1>
-        <button>영화 기록하기</button>
+        <div>현재 서울의 날씨 : <span id="temp">20</span>도</div>
+        <button onclick="hey()">영화 기록하기</button>
 
     </div>
     <div class="mypost">
